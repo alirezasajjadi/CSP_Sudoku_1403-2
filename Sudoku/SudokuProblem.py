@@ -1,7 +1,8 @@
 from CSP.Problem import Problem
 from CSP.Variable import Variable
 from Sudoku.SudokuConstraint import SudokuConstraint
-
+from States.StatesConstraint import StatesNotSameConstraint
+from Sudoku.KillerSudokuConstraint import KillerCageConstraint
 
 class SudokuProblem(Problem):
     def __init__(self, board=None, name="Sudoku"):
@@ -67,3 +68,4 @@ class SudokuProblem(Problem):
             print(row_str)
             if (row + 1) % 3 == 0:
                 print("-" * 25)
+

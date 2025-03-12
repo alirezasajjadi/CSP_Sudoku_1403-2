@@ -16,3 +16,4 @@ class SudokuConstraint(Constraint):
 
         values = [var.value for var in assigned_vars]
         return len(values) == len(set(values))
+    
