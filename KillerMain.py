@@ -2,18 +2,19 @@ from CSP.Solver import Solver
 from Sudoku.SudokuProblem import SudokuProblem
 from Sudoku.KillerSudokuProblem import KillerSudokuProblem
 from Sudoku.KillerKnightSudokuProblem import KillerKnightSudokuProblem
+from Sudoku.KnightSudokuProblem import KnightSudokuProblem 
 
 
 board = [
-    [0, 2, 3, 0, 5, 6, 7, 0, 0],
-    [4, 0, 6, 7, 0, 9, 1, 0, 0],
+    [0, 2, 3, 0, 5, 0, 0, 0, 0],
+    [4, 0, 6, 0, 0, 9, 0, 0, 0],
     [7, 8, 0, 1, 0, 3, 0, 0, 6],
-    [0, 0, 4, 0, 6, 0, 0, 9, 1],
-    [5, 6, 7, 8, 0, 0, 2, 3, 0],
-    [0, 9, 0, 0, 3, 4, 5, 0, 7],
+    [0, 0, 4, 0, 6, 0, 0, 0, 1],
+    [5, 6, 0, 0, 0, 0, 2, 0, 0],
+    [0, 9, 0, 0, 0, 4, 0, 0, 7],
     [3, 0, 0, 6, 0, 0, 0, 1, 2],
-    [6, 0, 8, 9, 1, 2, 0, 0, 0],
-    [9, 1, 0, 3, 4, 0, 6, 7, 0]  
+    [0, 0, 8, 0, 1, 2, 0, 0, 0],
+    [0, 1, 0, 3, 0, 0, 0, 0, 0]  
 ]
 
 
@@ -38,6 +39,19 @@ cages = [
 ]
 
 if __name__ == "__main__":
+
+    print("\nTesting Sudoku solver...")
+    sudoku = SudokuProblem()
+    solver = Solver(sudoku)
+    solver.solve()
+    sudoku.print_assignments()
+
+    print("\nTesting Knight Sudoku solver...")
+    knight = KnightSudokuProblem(board=board)
+    solver = Solver(knight)
+    solver.solve()
+    knight.print_assignments()
+    
     
     print("\nTesting Killer Sudoku solver...")
     killer = KillerSudokuProblem(board=board, cages=cages)
